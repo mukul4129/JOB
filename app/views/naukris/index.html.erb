@@ -1,0 +1,11 @@
+  <% @naukris.each do |naukri| %>
+  <section class="naukri">
+    <div class="summary">
+      <h2><%= link_to naukri.name, naukri_path(naukri)%></h2>
+    </div>
+  </section>
+  <% end %>
+
+  <section class="admin">
+    <%= link_to "Add New Naukri", new_naukri_path, class: "button" %>
+  </section>

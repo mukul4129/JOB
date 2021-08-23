@@ -1,0 +1,11 @@
+<section class="Job Details">
+    <div class="details">
+        <h1><%= @naukri.name%></h1>
+    </div>
+</section>
+
+<section class="admin">
+    <%= link_to "Edit", edit_naukri_path(@naukri), class: "button"%>
+    <%= link_to "Delete", naukri_path(@naukri), class: "button", method: :delete,
+                    data: {confirm: "Really!!"}%>
+</section>
