@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :registrations #, #dependent: destroy
+  has_many :registrations , dependent: destroy
   
   has_secure_password
 

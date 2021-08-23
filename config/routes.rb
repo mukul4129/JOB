@@ -3,8 +3,8 @@ Rails.application.routes.draw do
 
  
   resources :naukris 
-  
   resources :registrations
+  resource :sessions, only: [:new, :create, :destroy]
  
   resources :users
   get "signup" => "users#new"

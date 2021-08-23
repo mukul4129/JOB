@@ -5,7 +5,8 @@
     </div>
   </section>
   <% end %>
-
-  <section class="admin">
-    <%= link_to "Add New Naukri", new_naukri_path, class: "button" %>
-  </section>
+  <% if current_user_admin? %>
+    <section class="admin">
+      <%= link_to "Add New Job", new_naukri_path, class: "button" %>
+    </section>
+  <% end %>
