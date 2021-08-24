@@ -1,3 +1,3 @@
-module NaukriHelper
+module NaukrisHelper
 
 end

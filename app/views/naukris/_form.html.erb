@@ -1,5 +1,5 @@
 <%= form_with(model: naukri, local: true) do |f| %>
-
+  <%= render "shared/errors", object: naukri %>
   <%= f.label :name %>
   <%= f.text_field :name, autofocus: true %>
 

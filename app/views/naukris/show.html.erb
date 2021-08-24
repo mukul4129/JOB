@@ -2,6 +2,12 @@
     <div class="details">
         <h1><%= @naukri.name%></h1>
     </div>
+    <div class="register">
+    <%= register_or_not(@naukri) %>
+      <p>
+        <%= link_to "Who's registered?", naukri_registrations_path(@naukri) %>
+      </p>
+    </div>
 </section>
 <% if current_user_admin? %>
     <section class="admin">

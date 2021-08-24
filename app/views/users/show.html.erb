@@ -11,4 +11,16 @@
                         class: "button delete" %>
     </div>
   <% end %>
+
+  <% if @registrations.present? %>
+    <h3>Registrations</h3>
+    <% @registrations.each do |r| %>
+      <div class="registration">
+        <div class="name">
+          <%= link_to r.naukri.name, r.naukri %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+
 </section>

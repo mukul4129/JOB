@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
+  
   root "naukri#index"
-
  
-  resources :naukris 
-  resources :registrations
+  resources :naukris do
+    resources :registrations
+  end
+  
   resource :sessions, only: [:new, :create, :destroy]
  
   resources :users
