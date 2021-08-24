@@ -1,0 +1,10 @@
+<h1> New Rounds for <%= link_to @naukri.name, @naukri %></h1>
+
+<%= form_with(model: [@naukri, @round], local: true) do |f| %>
+  <%= render "shared/errors", object: @round %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name, autofocus: true %>
+
+  <%= f.submit %>
+<% end %>

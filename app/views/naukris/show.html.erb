@@ -8,6 +8,9 @@
         <%= link_to "Who's registered?", naukri_registrations_path(@naukri) %>
       </p>
     </div>
+    <div class="rounds">
+      <%= link_to "Rounds", naukri_rounds_path(@naukri)%>
+    </div>
 </section>
 <% if current_user_admin? %>
     <section class="admin">
