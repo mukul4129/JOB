@@ -1,0 +1,15 @@
+<section>
+    <div class="Details">
+        <h1><%= @round.name%></h1>
+        <h2> Total Marks <%= @round.total_marks%></h2>
+    </div>
+    
+</section>
+
+<% if current_user_admin? %>
+    <section class="admin">
+        <%= link_to "Edit", edit_round_path(@round), class: "button"%>
+        <%= link_to "Delete", round_path(@round), class: "button", method: :delete,
+                        data: {confirm: "Really!!"}%>
+    </section>
+<% end %>

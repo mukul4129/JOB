@@ -1,12 +1,14 @@
 <h1>Rounds for <%= link_to @naukri.name, @naukri %></h1>
 
-<ul>
-  <% @rounds.each do |round| %>
-    <li>
-     <%= round.name %>     
-    </li>
-  <% end %>
-</ul>
+ <% @rounds.each do |round| %> 
+  <section class="round">
+    <div>
+     <h2><%= round.name %> &bull; <%= link_to round.option_type, round_path(round) %></h2>   
+    </div>
+  </section>
+ <% end %> 
+<% if current_user_admin? %>
     <section class="admin">
       <%= link_to "Add New Round", new_naukri_round_path, class: "button" %>
     </section>
+<% end%>
