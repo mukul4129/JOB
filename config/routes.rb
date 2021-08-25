@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :sawals
+  resources :questions
   resources :candidates
   resources :rounds
   root "naukri#index"

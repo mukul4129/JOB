@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_25_105640) do
+ActiveRecord::Schema.define(version: 2021_08_25_153328) do
 
   create_table "candidates", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -21,10 +21,29 @@ ActiveRecord::Schema.define(version: 2021_08_25_105640) do
     t.index ["user_id"], name: "index_candidates_on_user_id"
   end
 
+  create_table "checkboxes", force: :cascade do |t|
+    t.integer "round_id", null: false
+    t.integer "sawal_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["round_id"], name: "index_checkboxes_on_round_id"
+    t.index ["sawal_id"], name: "index_checkboxes_on_sawal_id"
+  end
+
   create_table "naukris", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.text "question"
+    t.text "description"
+    t.integer "marks"
+    t.integer "round_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["round_id"], name: "index_questions_on_round_id"
   end
 
   create_table "registrations", force: :cascade do |t|
@@ -43,7 +62,14 @@ ActiveRecord::Schema.define(version: 2021_08_25_105640) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "total_marks"
     t.string "option_type"
+    t.integer "obtain_marks"
     t.index ["naukri_id"], name: "index_rounds_on_naukri_id"
+  end
+
+  create_table "sawals", force: :cascade do |t|
+    t.string "question_type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -57,6 +83,9 @@ ActiveRecord::Schema.define(version: 2021_08_25_105640) do
 
   add_foreign_key "candidates", "rounds"
   add_foreign_key "candidates", "users"
+  add_foreign_key "checkboxes", "rounds"
+  add_foreign_key "checkboxes", "sawals"
+  add_foreign_key "questions", "rounds"
   add_foreign_key "registrations", "naukris"
   add_foreign_key "registrations", "users"
   add_foreign_key "rounds", "naukris"

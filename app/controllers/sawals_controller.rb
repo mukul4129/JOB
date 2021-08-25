@@ -1,0 +1,2 @@
+class SawalsController < ApplicationController
+end
