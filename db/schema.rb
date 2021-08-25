@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_24_170747) do
+ActiveRecord::Schema.define(version: 2021_08_25_105640) do
+
+  create_table "candidates", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "round_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["round_id"], name: "index_candidates_on_round_id"
+    t.index ["user_id"], name: "index_candidates_on_user_id"
+  end
 
   create_table "naukris", force: :cascade do |t|
     t.string "name"
@@ -46,6 +55,8 @@ ActiveRecord::Schema.define(version: 2021_08_24_170747) do
     t.boolean "admin", default: false
   end
 
+  add_foreign_key "candidates", "rounds"
+  add_foreign_key "candidates", "users"
   add_foreign_key "registrations", "naukris"
   add_foreign_key "registrations", "users"
   add_foreign_key "rounds", "naukris"

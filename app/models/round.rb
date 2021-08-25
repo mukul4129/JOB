@@ -1,5 +1,6 @@
 class Round < ApplicationRecord
   belongs_to :naukri
+  has_many :candidates
 
   validates :name, presence: true
 

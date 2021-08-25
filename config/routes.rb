@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :candidates
   resources :rounds
   root "naukri#index"
  

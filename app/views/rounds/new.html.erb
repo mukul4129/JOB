@@ -6,6 +6,9 @@
   <%= f.label :name %>
   <%= f.text_field :name, autofocus: true %>
 
+  <%= f.label :total_marks %>
+  <%= f.number_field :total_marks %>
+
   <%= f.label :option_type %>
   <%= f.select :option_type, Round::PAPER_TYPE,
               prompt: "Pick one" %>
